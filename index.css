@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background: url("https://wallpaperplay.com/walls/full/4/7/c/11389.jpg");
+    background-size: 300px 250px;
+    background-repeat: repeat;
+}
+
+header{
+    margin: 0px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 20pt;
+    padding: 10px;
+    text-align: center;
+}
+
+main{
+    text-align: center;
+}
+
+.js-startQuiz{
+    display: inline-block;
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 20pt;    
+    white-space: nowrap;
+}
+
+.question{
+    margin: 20px;
+    padding: .75rem;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    font-size: 16pt;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+    border: silver solid 2pt;
+}
+
+/* .js-submit-answer{
+    display:none;
+} */
+
+input:checked{
+    color: white;
+    background-color: white;
+}
+
+.choice{
+    display: inline-block;
+    margin: .5rem;
+    padding: .5rem;
+    font-size: 16pt;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: white solid 2pt;
+}
+
+.choice:hover{
+    box-shadow: 0 0 5px 5px blue;
+}
+
+.choice-selected{
+    box-shadow: 0 0 5px 5px blue;
+}
+
+.question-number{
+    float: left;
+    margin-left: 1rem;
+    padding: .4rem;
+    color: white;
+    background-color: black;
+    border: white 1px solid;
+}
+
+.total-correct{
+    float: right;
+    margin-right: 1rem;
+    padding: .4rem;
+    color: white;
+    background-color: black;
+    border: white 1px solid;
+}
+
+.quiz-box{
+    clear:left;
+}
+
+.correctAnswer{
+    margin: 20px;
+    padding: .75rem;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    font-size: 16pt;
+    width: 50%;
+    height: auto;
+    justify-content: center;
+    border: silver solid 2pt;
+}
