@@ -33,7 +33,6 @@ function startButton(){
 
 //This function intiates the quiz function and stops at the end of questions array length.
 function startQuiz(questionsAnswered = 0, questionNumber = 1, numberCorrect = 0){
-
     if(questionsAnswered < produceQuestion().length){
         printQuestionNumber(questionNumber);
         printTotalCorrect(questionsAnswered, numberCorrect)
@@ -105,24 +104,26 @@ function generateChoicesText(choicesToPrint){
 function submitAnswer(answered, number, numCorrect){
     createSubmitButton();
     highlightChoice();
-    $('.quiz-box').on("click", ".submit-answer", function(event){
+    $('.quiz-box').off().on("submit", ".js-choices", function(event){
         event.preventDefault();
+        console.log("This should happen once per question");
         if($("input[name='choice']:checked").val()){
             if(checkAnswer($("input[name='choice']:checked").val(), loadAnswer(answered))){
                 ifCorrect(loadAnswer(answered));
                 numCorrect ++;
             } else{
                 ifIncorrect(loadAnswer(answered));
+                
             }
             answered ++;
             number ++;
-                
-                
-            $('.quiz-box').on("click", ".next-question", function(event){
+    
+    
+            $('.quiz-box').off().on("click", ".next-question", function(event){
                 clearQuizBox();
-                startQuiz(answered, number, numCorrect);
-            });
                 
+                startQuiz(answered, number, numCorrect);
+            });        
         };
     });
 
@@ -140,6 +141,9 @@ function clearQuizBox(){
 
 //This question returns the answer of the question index given
 function loadAnswer(questionIndex){
+    if(questionIndex >= produceQuestion().length){
+        questionIndex = 0;
+    }
     return produceQuestion()[questionIndex].answer;
 };
 
@@ -193,7 +197,7 @@ function printResults(questionsAnswered, questionNumber, numberCorrect){
 //This function creates a button to start the quiz over.
 function restartButton(){
     $('.quiz-box').append(`<button type="button" class="restartButton">Let me try again!</button>`);
-    $('.quiz-box').on('click', ".restartButton", function(event){
+    $('.quiz-box').off().on('click', ".restartButton", function(event){
         $('.quiz-box').empty();
         startQuiz();
     });
